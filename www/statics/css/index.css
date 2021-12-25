@@ -1,0 +1,37 @@
+#messages{
+    margin: 10px;
+    padding: 10px;
+}
+#chat_form{
+    width: 100%;
+    height: 80px;
+    position: sticky;
+    bottom: 10px;
+    left: 0;
+    background-color: #fff;
+    z-index: 9999;
+    border: 1px solid #ccc;
+}
+#msg_ta{
+    width:80%;
+    height:100%;
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding:5px;
+    display: inline-block;
+    resize: none;
+}
+#send_btn{
+    width:20%;
+    height:100%;
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding:5px;
+    display: inline-block;
+}
+#send_btn:hover{
+    background-color: #ccc;
+}
+#send_btn:active{
+    background-color: #aaa;
+}
