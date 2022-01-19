@@ -18,8 +18,12 @@ class WebSocketManager:
             display_name += f"#{self.users[display_name]}"
             
         self.active_websockets[websocket] = display_name
-        await websocket.send_json({"user": "server", "message": f"[*] Welcome to the server {display_name}!"})
-        await self.broadcast("server", f"[*] {display_name} has joined the chat!", exclude={websocket})
+        await websocket.send_json({
+            "user": "server", 
+            "message": f"[*] Welcome to the server {display_name} ({websocket.client.host}:{websocket.client.port})!",
+            "active_users": list(self.active_websockets.values())
+        })
+        await self.broadcast("server", f"[*] {display_name} ({websocket.client.host}:{websocket.client.port}) has joined the chat!", exclude={websocket})
     
     def get_display_name(self, websocket):
         return self.active_websockets.get(websocket)
